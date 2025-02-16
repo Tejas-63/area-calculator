@@ -92,6 +92,41 @@
         <h3 id="result"></h3>
     </form>
 </div>
+<script>
+    
+    function toggleInputs() {
+        const shape = document.getElementById("shape").value;
+        if (shape === "rectangle") {
+            document.getElementById("rectangle-inputs").style.display = "block";
+            document.getElementById("circle-inputs").style.display = "none";
+        } else {
+            document.getElementById("rectangle-inputs").style.display = "none";
+            document.getElementById("circle-inputs").style.display = "block";
+        }
+    }
+    function calculateArea() {
+    const shape = document.getElementById("shape").value;
+    let result = 0;
+    if (shape === "rectangle") {
+        const length = parseFloat(document.getElementById("length").value);
+        const width = parseFloat(document.getElementById("width").value);
+        
+        if (isNaN(length) || isNaN(width) || length <= 0 || width <= 0) {
+            alert("enter valid positive numbers for length and width.");
+            return;
+        }
+        result = length * width;
+    } else if (shape === "circle") {
+        const radius = parseFloat(document.getElementById("radius").value);
 
+        if (isNaN(radius) || radius <= 0) {
+            alert(" enter a valid positive number for the radius.");
+            return;
+        }
+        result = Math.PI * Math.pow(radius, 2);
+    }
+    document.getElementById("result").innerText = "Area: " + result.toFixed(2);
+}
+    </script>
 </body>
 </html>
