@@ -6,6 +6,33 @@
     <title>Area Calculator</title>
 </head>
 <body>
-    <h1>Area Calculator</h1>
+    <div class="container">
+       <h1>Area Calculator</h1>
+       <form id="calculator-form">
+        <label for="shape">Choose a shape:</label>
+        <select id="shape" name="shape" onchange="toggleInputs()">
+            <option value="rectangle">Rectangle</option>
+            <option value="circle">Circle</option>
+        </select>
+
+        <div id="rectangle-inputs">
+            <label for="length">Length:</label>
+            <input type="number" id="length" placeholder="Enter length" />
+
+            <label for="width">Width:</label>
+            <input type="number" id="width" placeholder="Enter width" />
+        </div>
+
+        <div id="circle-inputs" style="display: none;">
+            <label for="radius">Radius:</label>
+            <input type="number" id="radius" placeholder="Enter radius" />
+        </div>
+
+        <button type="button" onclick="calculateArea()">Calculate Area</button>
+
+        <h3 id="result"></h3>
+    </form>
+</div>
+
 </body>
 </html>
